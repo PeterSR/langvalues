@@ -7,5 +7,27 @@
 {% endblock %}
 
 {% block content %}
-Content
+
+{% for language in languages %}
+    <button type="button" class="btn btn-outline-primary">
+        {{language}}
+    </button>
+{% endfor %}
+
+<hr>
+
+<div class="row">
+{% for values in value_partitions %}
+    <div class="col-sm">
+    {% for value in values %}
+    <p>
+                <button type="button" class="btn btn-outline-secondary">
+                    {{value}}
+                </button>
+    </p>
+    {% endfor %}
+    </div>
+{% endfor %}
+</div>
+
 {% endblock %}
