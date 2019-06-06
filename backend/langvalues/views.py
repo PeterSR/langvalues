@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
+from django.http import JsonResponse
 
 from .models import *
 
@@ -26,3 +27,20 @@ def index(request):
         "value_partitions": value_partitions,
     }
     return render(request, "langvalues/index.html", context)
+
+
+
+def get_values(request, id):
+    lang = get_object_or_404(Language, pk=id)
+    links = lang.valuelink_set.all()
+    return JsonResponse({
+        'values': [
+            {
+                "id": link.value.pk,
+                "slug": link.value.slug,
+                "name": link.value.name,
+                "factor": link.factor,
+            }
+            for link in links
+        ],
+    })

@@ -2,28 +2,47 @@
 
 {% block javascript %}
 <script>
-    
+    function get_by_id(id) {
+        const url = '{% url "get_values" 999999 %}'.replace("999999", id);
+        jQuery.ajax({
+            url: url,
+        }).done((data) => {
+            if (!data && data.values) {
+                return;
+            }
+
+            // Set all buttons to disabled
+            jQuery("#values button").each((index, el) => {
+                $(el).prop('disabled', true);
+            })
+
+            data.values.forEach((value) => {
+                jQuery("#values").find(`[data-value-id='${value.id}']`).prop('disabled', false);
+            })
+        });
+    }
 </script>
 {% endblock %}
 
 {% block content %}
 
+<div id="languages">
 {% for language in languages %}
-    <button type="button" class="btn btn-outline-primary">
+    <button onclick="get_by_id('{{language.id}}')" type="button" class="btn btn-outline-primary">
         {{language}}
     </button>
 {% endfor %}
 
 <hr>
 
-<div class="row">
+<div class="row" id="values">
 {% for values in value_partitions %}
     <div class="col-sm">
     {% for value in values %}
     <p>
-                <button type="button" class="btn btn-outline-secondary">
-                    {{value}}
-                </button>
+        <button type="button" data-value-id="{{value.id}}" class="btn btn-outline-secondary" disabled>
+            {{value}}
+        </button>
     </p>
     {% endfor %}
     </div>
