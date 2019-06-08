@@ -26,6 +26,6 @@ with open(SECRET_KEY_FILE) as f:
     SECRET_KEY = f.read().strip()
 
 
-DEBUG = True
+DEBUG = False
 
 STATIC_ROOT = os.path.join(BASE_DIR, "build/static")
