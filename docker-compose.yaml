@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+  backend:
+    env_file: .env
+    container_name: langvalues_backend
+    build:
+      ./backend
+    depends_on:
+      - db
+    restart: always
+    ports:
+      - "8000:8000"
+    networks:
+      - backend
+
+  db:
+    env_file: .env
+    container_name: langvalues_db
+    image: mysql:5.7
+    restart: always
+    ports:
+      - "3306:3306"
+    networks:
+      - backend
+    volumes:
+      - db-volume:/var/lib/mysql
+
+
+networks:
+  backend:
+volumes:
+  db-volume:

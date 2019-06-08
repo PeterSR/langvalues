@@ -17,8 +17,9 @@ def index(request):
     values = Value.objects.order_by("name")
 
     num_columns = 3
+    k = max(round(len(values) / num_columns), 1)
 
-    value_partitions = chunks(values, round(len(values) / num_columns))
+    value_partitions = chunks(values, k)
 
     context = {
         "languages": languages,
