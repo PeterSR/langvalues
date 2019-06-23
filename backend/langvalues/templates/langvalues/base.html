@@ -2,45 +2,22 @@
 {% load static %}
 <!doctype html>
 <html>
-  <head>
+<head>
     <meta charset="utf-8">
     <title>{% block title %}Programming Languages and their Core Values - LangValues{% endblock %}</title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/app.css' %}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {% block stylesheet %}{% endblock %}
-  </head>
-  <body>
+</head>
+<body>
+    <noscript>
+        <strong>We're sorry but frontend doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
 
-    <div class="content">
-        <div class="container">
-            <header>
-                <h2>Programming Languages and their Core Values</h2>
-            </header>
-
-            <br />
-            <br />
-
-            <main>
-                {% block content %}
-                {% endblock %}
-            </main>
-        </div>
+    <div id="app">
+        <app></app>
     </div>
 
-    <footer class="footer">
-        <div class="text-center text-muted">
-            LangValues created by <a href="https://github.com/PeterSR">PeterSR</a>
-            &middot;
-            Inspired by <a href="https://youtu.be/2wZ1pCpJUIM?t=125" target="_blank">Bryan Cantrill</a>
-        </div>
-    </footer>
-
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="{% static 'js/app.js' %}"></script>
-    {% block javascript %}{% endblock %}
-
-    {% render_bundle 'main' %}
-  </body>
+    {% render_bundle 'app' %}
+</body>
 </html>
