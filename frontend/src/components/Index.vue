@@ -3,6 +3,12 @@
 </template>
 
 <script>
+import axios from 'axios';
+
+axios.get(`/api`).then(data => {
+  console.log(data)
+});
+
 export default {
   name: 'Test',
   data () {
