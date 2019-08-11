@@ -1,6 +1,19 @@
 version: '3'
 
 services:
+  frontend:
+    env_file: .env
+    container_name: langvalues_frontend
+    build:
+      ./frontend
+    depends_on:
+      - db
+    restart: always
+    ports:
+      - "8080:8080"
+    networks:
+      - backend
+
   backend:
     env_file: .env
     container_name: langvalues_backend
@@ -10,7 +23,7 @@ services:
       - db
     restart: always
     ports:
-      - "8001:8001"
+      - "8000:8000"
     networks:
       - backend
 
