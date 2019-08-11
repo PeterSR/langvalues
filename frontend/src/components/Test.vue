@@ -8,7 +8,7 @@
                 class="lang-btn" 
                 v-for="lang in langs" 
                 v-bind:key="lang.id"
-                v-on:click="highlight = (highlight ? null : lang)"
+                v-on:click="highlight = (highlight != lang ? lang : null)"
             >{{lang.name}}</b-button>
 
             <hr />
