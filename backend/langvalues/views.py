@@ -1,7 +1,8 @@
 from django.shortcuts import render, get_object_or_404
-from django.http import JsonResponse
+from rest_framework import viewsets, generics
 
 from .models import *
+from .serializers import *
 
 
 def chunks(l, n):
@@ -31,17 +32,28 @@ def index(request):
 
 
 
-def get_values(request, id):
-    lang = get_object_or_404(Language, pk=id)
-    links = lang.valuelink_set.all()
-    return JsonResponse({
-        'values': [
-            {
-                "id": link.value.pk,
-                "slug": link.value.slug,
-                "name": link.value.name,
-                "factor": link.factor,
-            }
-            for link in links
-        ],
-    })
+class ValueList(generics.ListCreateAPIView):
+    queryset = Value.objects.all()
+    serializer_class = ValueSerializer
+
+class ValueDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Value.objects.all()
+    serializer_class = ValueSerializer
+
+
+class LanguageList(generics.ListCreateAPIView):
+    queryset = Language.objects.all()
+    serializer_class = LanguageSerializer
+
+class LanguageDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Language.objects.all()
+    serializer_class = LanguageSerializer
+
+
+class ValueLinkList(generics.ListCreateAPIView):
+    queryset = ValueLink.objects.all()
+    serializer_class = ValueLinkSerializer
+
+class ValueLinkDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = ValueLink.objects.all()
+    serializer_class = ValueLinkSerializer
