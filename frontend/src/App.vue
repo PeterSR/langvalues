@@ -3,19 +3,19 @@
     <div class="content">
       <Core />
     </div>
-    <Footer />
+    <ProjectFooter />
   </div>
 </template>
 
 <script>
 import Core from './components/Core.vue'
-import Footer from './components/Footer.vue'
+import ProjectFooter from './components/ProjectFooter.vue'
 
 export default {
   name: 'app',
   components: {
     Core,
-    Footer
+    ProjectFooter
   }
 }
 </script>
