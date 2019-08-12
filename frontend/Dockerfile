@@ -24,7 +24,7 @@ RUN CI=true npm run build
 # Run
 WORKDIR dist
 
-ENV API_HOST="http://backend"
+ENV API_HOST="http://localhost"
 
 EXPOSE 8080
 
