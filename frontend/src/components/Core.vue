@@ -71,13 +71,17 @@ export default {
     },
     mounted() {
         axios.get("/api/langs").then((response) => {
-            this.langs = response.data
+            if (response.data) {
+                this.langs = response.data
+            }
         }).catch((err) => {
             console.error(err)
         })
 
         axios.get("/api/values").then((response) => {
-            this.values = response.data
+            if (response.data) {
+                this.values = response.data
+            }
         }).catch((err) => {
             console.error(err)
         })
