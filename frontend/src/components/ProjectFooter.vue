@@ -4,6 +4,8 @@
             LangValues created by <a href="https://github.com/PeterSR">PeterSR</a>
             ·
             Inspired by <a href="https://youtu.be/2wZ1pCpJUIM?t=125" target="_blank">Bryan Cantrill</a>
+            ·
+            <a href="https://github.com/PeterSR/langvalues">Fork me</a>
         </div>
     </footer>
 </template>

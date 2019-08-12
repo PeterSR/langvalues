@@ -28,6 +28,8 @@
                     </ul>
                 </b-col>
             </b-row>
+
+            <p class="core-footer">Don't see your favorite language or value on the list? Disagreeing with some values? <a href="mailto:langvalues@petersr.com">Get in touch</a> or <a href="https://github.com/PeterSR/langvalues/issues">open an issue</a>.</p>
         </b-container>
     </div>
 </template>
@@ -115,5 +117,12 @@ export default {
 
 .value.highlighted {
     color: orange;
+}
+
+.core-footer {
+    margin-top: 2em;
+    font-size: 0.8em;
+    color: gray;
+    text-align: center;
 }
 </style>
