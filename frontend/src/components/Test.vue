@@ -3,21 +3,28 @@
         <b-container>
             <h1>Programming Languages and their Core Values</h1>
 
-            <b-button 
-                variant="outline-primary" 
-                class="lang-btn" 
-                v-for="lang in langs" 
-                v-bind:key="lang.id"
-                v-on:click="highlight = (highlight != lang ? lang : null)"
-            >{{lang.name}}</b-button>
+            <b-button-toolbar key-nav aria-label="Languages to choose from">
+                <b-button-group class="lang-nav">
+                    <b-button
+                        variant="outline-primary"
+                        class="lang-btn btn-lg"
+                        v-for="lang in langs"
+                        v-bind:key="lang.id"
+                        v-on:click="highlighted_lang = (highlighted_lang != lang ? lang : null)"
+                        v-bind:class="{active: lang == highlighted_lang}"
+                    >{{lang.name}}</b-button>
+                </b-button-group>
+            </b-button-toolbar>
 
             <hr />
 
             <b-row>
                 <b-col v-for="(col, index) in value_columns" v-bind:key="index">
-                    <p v-for="value in col" v-bind:key="value.id">
-                        <b-button variant="outline-secondary" :disabled="isDisabled(value)">{{value.name}}</b-button>
-                    </p>
+                    <ul>
+                        <li class="value" v-for="value in col" v-bind:key="value.id" v-bind:class="{highlighted: highlight(value)}">
+                            {{value.name}}
+                        </li>
+                    </ul>
                 </b-col>
             </b-row>
         </b-container>
@@ -46,7 +53,7 @@ export default {
         return {
             langs: [],
             values: [],
-            highlight: null,
+            highlighted_lang: null,
         }
     },
     computed: {
@@ -58,12 +65,8 @@ export default {
         },
     },
     methods: {
-        isDisabled: function(value) {
-            if (this.highlight === null) {
-                return true
-            }
-
-            return !this.highlight.values.includes(value.id)
+        highlight: function(value) {
+            return this.highlighted_lang !== null && this.highlighted_lang.values.includes(value.id)
         },
     },
     mounted() {
@@ -83,7 +86,21 @@ export default {
 </script>
 
 <style scoped>
-.lang-btn {
-    margin: 0.5em;
+h1 {
+    margin: 1em 0;
+}
+
+.lang-nav {
+    margin: 1em auto;
+}
+
+.value {
+    font-size: 2em;
+    line-height: 2.3em;
+    color: gray;
+}
+
+.value.highlighted {
+    color: orange;
 }
 </style>
