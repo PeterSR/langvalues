@@ -74,6 +74,7 @@ export default {
         api.langs().then((response) => {
             if (response.data) {
                 this.langs = response.data
+                this.langs.sort((a, b) => (a.name < b.name ? -1 : 1))
             }
         }).catch((err) => {
             console.error(err)
@@ -82,6 +83,7 @@ export default {
         api.values().then((response) => {
             if (response.data) {
                 this.values = response.data
+                this.values.sort((a, b) => (a.name < b.name ? -1 : 1))
             }
         }).catch((err) => {
             console.error(err)
