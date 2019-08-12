@@ -13,7 +13,7 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 
 RUN npm ci
-RUN npm install -g serve
+RUN npm install -g local-web-server
 
 # Copy the source and build
 COPY . ./
@@ -22,6 +22,10 @@ RUN CI=true npm run build
 
 
 # Run
+WORKDIR dist
+
+ENV API_HOST="http://backend"
+
 EXPOSE 8080
 
-ENTRYPOINT serve -n -s dist/ -p 8080
+ENTRYPOINT ws --spa index.html -p 8080 --rewrite "/api/(.*) -> $API_HOST/api/\$1" --static.extensions

@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import axios from "axios";
+import {api} from "../utils/api"
 
 function columns(items, num_columns) {
     const num_per_column = items.length / num_columns
@@ -70,7 +70,7 @@ export default {
         },
     },
     mounted() {
-        axios.get("/api/langs").then((response) => {
+        api.langs().then((response) => {
             if (response.data) {
                 this.langs = response.data
             }
@@ -78,7 +78,7 @@ export default {
             console.error(err)
         })
 
-        axios.get("/api/values").then((response) => {
+        api.values().then((response) => {
             if (response.data) {
                 this.values = response.data
             }

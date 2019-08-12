@@ -8,9 +8,10 @@ services:
       ./frontend
     depends_on:
       - db
+      - backend
     restart: always
     ports:
-      - "8080:8080"
+      - "8045:8080"
     networks:
       - backend
 
@@ -23,7 +24,7 @@ services:
       - db
     restart: always
     ports:
-      - "8000:8000"
+      - "8046:8000"
     networks:
       - backend
 
