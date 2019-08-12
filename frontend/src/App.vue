@@ -1,20 +1,20 @@
 <template>
   <div id="app">
     <div class="content">
-      <Test />
+      <Core />
     </div>
     <Footer />
   </div>
 </template>
 
 <script>
-import Test from './components/Test.vue'
+import Core from './components/Core.vue'
 import Footer from './components/Footer.vue'
 
 export default {
   name: 'app',
   components: {
-    Test,
+    Core,
     Footer
   }
 }
