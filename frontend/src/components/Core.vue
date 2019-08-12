@@ -1,7 +1,8 @@
 <template>
     <div>
         <b-container>
-            <h1>Programming Languages and their Core Values</h1>
+            <h1 class="title">LangValues <img :src="require('../assets/logo.png')"/></h1>
+            <h2 class="subtitle">Programming Languages and their Core Values</h2>
 
             <b-button-toolbar key-nav aria-label="Languages to choose from">
                 <b-button-group class="lang-nav">
@@ -90,12 +91,18 @@ export default {
 </script>
 
 <style scoped>
-h1 {
-    margin: 1em 0;
+.title img {
+    width: 1.3em;
+    height: auto;
+}
+
+.subtitle {
+    color: gray;
+    font-size: 0.9em;
 }
 
 .lang-nav {
-    margin: 1em auto;
+    margin: 2em auto;
 }
 
 .value {
