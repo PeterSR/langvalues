@@ -16,16 +16,20 @@ class API {
             let values = data.values
 
             for (let lang of langs) {
-                if (lang.values) {
-                    // If we have already specified values under the lang, use it.
-                    continue
+                // Allow us to store values both under languages
+                // and in a "relationship" list. These list are merged.
+
+                if (!lang.values) {
+                    lang.values = []
                 }
 
-                lang.values = data.relationship.filter((rel) => {
+                const rel_values = data.relationship.filter((rel) => {
                     return rel.lang === lang.id
                 }).map((rel) => {
                     return rel.value
                 })
+
+                lang.values.push(...rel_values)
             }
 
             return {
