@@ -69,22 +69,22 @@ export default {
     },
     methods: {
         highlight: function(value) {
-            return this.highlighted_lang !== null && this.highlighted_lang.values.includes(value.id)
+            return this.highlighted_lang !== null && this.highlighted_lang.values.includes(value)
         },
     },
     mounted() {
-        api.langs().then((response) => {
-            if (response.data) {
-                this.langs = response.data
+        api.data().then((data) => {
+            if (!data) {
+                throw new Error("Invalid data.")
+            }
+
+            if (data.langs) {
+                this.langs = data.langs
                 this.langs.sort((a, b) => (a.name < b.name ? -1 : 1))
             }
-        }).catch((err) => {
-            console.error(err)
-        })
 
-        api.values().then((response) => {
-            if (response.data) {
-                this.values = response.data
+            if (data.values) {
+                this.values = data.values
                 this.values.sort((a, b) => (a.name < b.name ? -1 : 1))
             }
         }).catch((err) => {

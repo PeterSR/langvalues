@@ -1,0 +1,128 @@
+languages:
+  - id: c
+    name: "C"
+  - id: cpp
+    name: "C++"
+  - id: awk
+    name: "Awk"
+  - id: scala
+    name: "Scala"
+  - id: rust
+    name: "Rust"
+  - id: python
+    name: "Python"
+
+values:
+  - id: approachability
+    name: "Approachability"
+  - id: availability
+    name: "Availability"
+  - id: compatibility
+    name: "Compatibility"
+  - id: composibility
+    name: "Composibility"
+  - id: debuggability
+    name: "Debuggability"
+  - id: expressiveness
+    name: "Expressiveness"
+  - id: extensibility
+    name: "Extensibility"
+  - id: interoperability
+    name: "Interoperability"
+  - id: integrity
+    name: "Integrity"
+  - id: maintainability
+    name: "Maintainability"
+  - id: measurability
+    name: "Measurability"
+  - id: operability
+    name: "Operability"
+  - id: performance
+    name: "Performance"
+  - id: portability
+    name: "Portability"
+  - id: resiliency
+    name: "Resiliency"
+  - id: rigor
+    name: "Rigor"
+  - id: robustness
+    name: "Robustness"
+  - id: safety
+    name: "Safety"
+  - id: security
+    name: "Security"
+  - id: simplicity
+    name: "Simplicity"
+  - id: stability
+    name: "Stability"
+  - id: thoroughness
+    name: "Thoroughness"
+  - id: transparency
+    name: "Transparency"
+  - id: velocity
+    name: "Velocity"
+
+
+relationship:
+  - lang: awk
+    value: approachability
+  - lang: awk
+    value: expressiveness
+  - lang: awk
+    value: simplicity
+  - lang: awk
+    value: velocity
+  - lang: c
+    value: interoperability
+  - lang: c
+    value: performance
+  - lang: c
+    value: portability
+  - lang: c
+    value: simplicity
+  - lang: c
+    value: expressiveness
+  - lang: c
+    value: performance
+  - lang: c
+    value: portability
+  - lang: python
+    value: approachability
+  - lang: python
+    value: expressiveness
+  - lang: python
+    value: simplicity
+  - lang: python
+    value: velocity
+  - lang: python
+    value: composibility
+  - lang: rust
+    value: composibility
+  - lang: rust
+    value: expressiveness
+  - lang: rust
+    value: extensibility
+  - lang: rust
+    value: interoperability
+  - lang: rust
+    value: integrity
+  - lang: rust
+    value: performance
+  - lang: rust
+    value: rigor
+  - lang: rust
+    value: robustness
+  - lang: rust
+    value: safety
+  - lang: rust
+    value: security
+  - lang: scala
+    value: composibility
+  - lang: scala
+    value: expressiveness
+  - lang: scala
+    value: interoperability
+  - lang: scala
+    value: integrity
+  - lang: scala
+    value: robustness
