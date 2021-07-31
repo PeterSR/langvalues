@@ -69,7 +69,7 @@ export default {
     },
     methods: {
         highlight: function(value) {
-            return this.highlighted_lang !== null && this.highlighted_lang.values.includes(value)
+            return this.highlighted_lang !== null && this.highlighted_lang.values.includes(value.id)
         },
     },
     mounted() {

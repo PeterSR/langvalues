@@ -15,16 +15,16 @@ class API {
             let langs = data.languages
             let values = data.values
 
-            var values_map = values.reduce(function(obj, x) {
-                obj[x.id] = x
-                return obj
-            }, {})
-
             for (let lang of langs) {
+                if (lang.values) {
+                    // If we have already specified values under the lang, use it.
+                    continue
+                }
+
                 lang.values = data.relationship.filter((rel) => {
                     return rel.lang === lang.id
                 }).map((rel) => {
-                    return values_map[rel.value]
+                    return rel.value
                 })
             }
 
