@@ -72,6 +72,7 @@ relationship:
     value: simplicity
   - lang: awk
     value: velocity
+
   - lang: c
     value: interoperability
   - lang: c
@@ -80,12 +81,14 @@ relationship:
     value: portability
   - lang: c
     value: simplicity
-  - lang: c
+
+  - lang: cpp
     value: expressiveness
-  - lang: c
+  - lang: cpp
     value: performance
-  - lang: c
+  - lang: cpp
     value: portability
+
   - lang: python
     value: approachability
   - lang: python
@@ -96,6 +99,7 @@ relationship:
     value: velocity
   - lang: python
     value: composibility
+
   - lang: rust
     value: composibility
   - lang: rust
@@ -116,6 +120,7 @@ relationship:
     value: safety
   - lang: rust
     value: security
+
   - lang: scala
     value: composibility
   - lang: scala
